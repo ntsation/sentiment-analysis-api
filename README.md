@@ -1,6 +1,6 @@
 # Real-Time Sentiment Analysis 📊
 
-This project demonstrates a real-time sentiment analysis pipeline using the NLTK (Natural Language Toolkit) Sentiment Analyzer and Python. The code reads messages in real time, analyzes their sentiments and displays the results.
+This project demonstrates a real-time sentiment analysis pipeline using the NLTK (Natural Language Toolkit) Sentiment Analyzer and Python. The code allows you to choose between entering messages in real-time for sentiment analysis and analyzing text from a file.
 
 ## Requirements 🛠️
 
@@ -8,14 +8,12 @@ Before using this project, make sure you have the following dependencies install
 
 - Python 3.x
 - NLTK (Natural Language Toolkit)
-- Other libraries if necessary (e.g. Kafka, Spark)
 
 ## How to use 🚀
 
 1. Clone this repository:
-
 ```
-git clone https://https://github.com/ntsation/analyze_feelings.
+git clone https://github.com/ntsation/analyze_feelings.git
 ```
 2. Navigate to the project directory:
 ```
@@ -25,11 +23,16 @@ cd analyze_feelings
 ```
 pip install nltk
 ```
-4. Run the code to start sentiment analysis::
+
+
+4. Run the code to start sentiment analysis:
 ```
 python analyze_feelings.py
 ```
-5. Enter messages into the console for sentiment analysis.
+
+5. Choose an option:
+   - Enter messages into the console for real-time sentiment analysis.
+   - Analyze the sentiment of a text file by providing its path.
 
 ## Message Examples 📝
 
@@ -37,17 +40,24 @@ python analyze_feelings.py
 ```
 I love this product, it's amazing!
 ```
+
 - Negative message 😞:
 ```
 This movie is terrible, I don't recommend it.
 ```
+
 - Neutral message 😐:
 ```
 The weather is pleasant today.
 ```
+
 ## Contribution 💬
 
-Feel free to contribute, open issues and improve this project. All types of contributions are welcome!
+Feel free to contribute, open issues, and improve this project. All types of contributions are welcome!
 
 ## License 📜
+
 This project is distributed under the MIT License. See the LICENSE file for more details.
+
+
+
