@@ -9,55 +9,45 @@ Before using this project, make sure you have the following dependencies install
 - Python 3.x
 - NLTK (Natural Language Toolkit)
 
-## How to use 🚀
+## How to use with Docker 🐳
 
 1. Clone this repository:
 ```
 git clone https://github.com/ntsation/analyze_feelings.git
 ```
-2. Navigate to the project directory:
+## Navigate to the project directory:
+
 ```
 cd analyze_feelings
 ```
-3. Install Python dependencies (NLTK):
+
+## Build the Docker image:
 ```
-pip install nltk
+docker build -t analyze_feelings .
 ```
-
-
-4. Run the code to start sentiment analysis:
+## Run the Docker container interactively:
 ```
-python analyze_feelings.py
+docker run -it --rm analyze_feelings
 ```
+This will start the sentiment analysis application in interactive mode.
 
-5. Choose an option:
-   - Enter messages into the console for real-time sentiment analysis.
-   - Analyze the sentiment of a text file by providing its path.
+## Choose an option:
 
-## Message Examples 📝
-
-- Positive message 😃:
+Enter messages into the console for real-time sentiment analysis.
+Analyze the sentiment of a text file by providing its path.
+### Message Examples 📝
+Positive message 😃:
 ```
 I love this product, it's amazing!
 ```
-
-- Negative message 😞:
+Negative message 😞:
 ```
 This movie is terrible, I don't recommend it.
 ```
-
-- Neutral message 😐:
+Neutral message 😐:
 ```
 The weather is pleasant today.
 ```
 
 ## Contribution 💬
-
 Feel free to contribute, open issues, and improve this project. All types of contributions are welcome!
-
-## License 📜
-
-This project is distributed under the MIT License. See the LICENSE file for more details.
-
-
-
