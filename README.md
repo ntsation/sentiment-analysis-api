@@ -1,53 +1,53 @@
-# Real-Time Sentiment Analysis 📊
+# Análise de sentimentos em tempo real 📊
 
-This project demonstrates a real-time sentiment analysis pipeline using the NLTK (Natural Language Toolkit) Sentiment Analyzer and Python. The code allows you to choose between entering messages in real-time for sentiment analysis and analyzing text from a file.
+Este projeto demonstra um pipeline de análise de sentimentos em tempo real usando o analisador de sentimentos e python NLTK (Language Toolkit).O código permite escolher entre inserir mensagens em tempo real para análise de sentimentos e analisar o texto de um arquivo.
 
-## Requirements 🛠️
+## Requisitos 🛠️
 
-Before using this project, make sure you have the following dependencies installed:
+Antes de usar este projeto, verifique se você tem as seguintes dependências instaladas:
 
 - Python 3.x
-- NLTK (Natural Language Toolkit)
+- NLTK (kit de ferramentas de linguagem natural)
 
-## How to use with Docker 🐳
+## Como usar com o Docker 🐳
 
-1. Clone this repository:
+### 1. Clone este repositório:
 ```
-git clone https://github.com/ntsation/analyze_feelings.git
+Git clone https://github.com/ntsation/analyze_feelings.git
 ```
-## Navigate to the project directory:
+### 2. Navegue até o diretório do projeto:
 
 ```
 cd analyze_feelings
 ```
 
-## Build the Docker image:
+### 3. Construa a imagem do Docker:
 ```
 docker build -t analyze_feelings .
 ```
-## Run the Docker container interactively:
+### 4. Execute o contêiner do Docker interativamente:
 ```
 docker run -it --rm analyze_feelings
 ```
-This will start the sentiment analysis application in interactive mode.
+Isso iniciará o aplicativo de análise de sentimentos no modo interativo.
 
-## Choose an option:
+## Escolha uma opção:
 
-Enter messages into the console for real-time sentiment analysis.
-Analyze the sentiment of a text file by providing its path.
-### Message Examples 📝
-Positive message 😃:
+Digite mensagens no console para análise de sentimentos em tempo real.
+Analise o sentimento de um arquivo de texto, fornecendo seu caminho.
+### Exemplos de mensagens 📝
+Mensagem positiva 😃:
 ```
-I love this product, it's amazing!
+Eu amo este produto, é incrível!
 ```
-Negative message 😞:
+Mensagem negativa 😞:
 ```
-This movie is terrible, I don't recommend it.
+Este filme é terrível, eu não recomendo.
 ```
-Neutral message 😐:
+Mensagem neutra 😐:
 ```
-The weather is pleasant today.
+O tempo está agradável hoje.
 ```
 
-## Contribution 💬
-Feel free to contribute, open issues, and improve this project. All types of contributions are welcome!
+## Contribuição 💬
+Sinta -se à vontade para contribuir, abrir problemas e melhorar este projeto.Todos os tipos de contribuições são bem -vindos!
