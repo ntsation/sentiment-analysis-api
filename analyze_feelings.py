@@ -50,4 +50,4 @@ def menu_principal():
             print('Escolha inválida. Por favor, tente novamente.')
 
 if __name__ == '__main__':
-    menu_principal
+    menu_principal()
