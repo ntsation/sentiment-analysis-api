@@ -4,43 +4,50 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
 
-# Initialize the NLTK sentiment analyzer
+# Inicializa o analisador de sentimento do NLTK
 sia = SentimentIntensityAnalyzer()
 
-def analyze_sentiment(text):
-    sentiment_score = sia.polarity_scores(text)
-    print(f'Message: {text}')
-    print(f'Sentiment: {sentiment_score}')
+def analisar_sentimento(texto):
+    pontuacao_sentimento = sia.polarity_scores(texto)
+    print(f'Mensagem: {texto}')
+    print(f'Sentimento: {pontuacao_sentimento}')
 
-def main_menu():
+def analisar_sentimento_arquivo(caminho_arquivo):
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
+            mensagem = arquivo.read().strip
+            if not mensagem:
+                print('O arquivo está vazio.')
+                return
+            analisar_sentimento(mensagem)
+    except FileNotFoundError:
+        print('Arquivo não encontrado. Por favor, tente novamente.')
+    except PermissionError:
+        print('Permmissão negada para acessar o arquivo. Por favor, verifique as permissões e tente novamente.')
+    except Exception as e:
+        print(f'Ocorreu um erro: {str(e)}')
+
+
+def menu_principal():
     while True:
-        print('Choose an option:')
-        print('1. Type a message to analyze')
-        print('2. Analyze a message from a file')
-        print('3. Exit')
+        print('Escolha uma opção:')
+        print('1. Digitar uma mensagem para analisar')
+        print('2. Aanalisar uma mensagem de um arquivo')
+        print('3. Sair')
 
-        choice = input('Enter your choice: ')
+        escolha = input('Digite sua escolha: ')
 
-        if choice == '1':
-            message = input('Enter a message: ')
-            analyze_sentiment(message)
-        elif choice == '2':
-            file_path = input('Enter the file path: ')
-            analyze_sentiment_from_file(file_path)
-        elif choice == '3':
+        if escolha == '1':
+            mensagem = input('Digite uma mensagem: ')
+            analisar_sentimento(mensagem)
+        elif escolha == '2': 
+            caminho_arquivo = input('Digite o caminho do arquivo: ')
+            analisar_sentimento_arquivo(caminho_arquivo)
+        elif escolha == '3':
+            print('Saindo...')
             break
         else:
-            print('Invalid choice. Please try again.')
-
-def analyze_sentiment_from_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            message = file.read()
-            analyze_sentiment(message)
-    except FileNotFoundError:
-        print('File not found. Please try again.')
-    except Exception as e:
-        print(f'An error occurred: {str(e)}')
+            print('Escolha inválida. Por favor, tente novamente.')
 
 if __name__ == '__main__':
-    main_menu()
+    menu_principal
