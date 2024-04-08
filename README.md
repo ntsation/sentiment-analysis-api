@@ -48,6 +48,9 @@ Mensagem neutra 😐:
 ```
 O tempo está agradável hoje.
 ```
+# Nota:
+```Mensagens em inglês podem ter uma eficiência melhor na análise de sentimentos devido à disponibilidade de recursos de processamento de linguagem natural mais robustos para o inglês.```
+
 
 ## Contribuição 💬
 Sinta -se à vontade para contribuir, abrir problemas e melhorar este projeto.Todos os tipos de contribuições são bem -vindos!
