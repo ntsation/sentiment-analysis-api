@@ -1,4 +1,3 @@
-import time
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
@@ -25,7 +24,7 @@ def analisar_sentimento_arquivo(caminho_arquivo):
     except FileNotFoundError:
         print('Arquivo não encontrado. Por favor, tente novamente.')
     except PermissionError:
-        print('Permmissão negada para acessar o arquivo. Por favor, verifique '
+        print('Permissão negada para acessar o arquivo. Por favor, verifique '
               'as permissões e tente novamente.')
     except Exception as e:
         print(f'Ocorreu um erro: {str(e)}')
