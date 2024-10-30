@@ -1,73 +1,124 @@
-# Análise de sentimentos em tempo real 📊
+# Sentiment Analysis API
 
-Este projeto demonstra um pipeline de análise de sentimentos em tempo real usando o analisador de sentimentos e python NLTK (Language Toolkit).O código permite escolher entre inserir mensagens em tempo real para análise de sentimentos e analisar o texto de um arquivo.
+This is a FastAPI application that performs sentiment analysis on text inputs using NLTK's VADER sentiment analysis tool.
 
-## Requisitos 🛠️
+## Features
 
-Antes de usar este projeto, verifique se você tem as seguintes dependências instaladas:
+- Analyze the sentiment of a single text input.
+- Analyze the sentiment of multiple text inputs.
+- Retrieve sentiment classification categories.
+- Get statistics on sentiment distribution for multiple texts.
 
-- Python 3.x
-- NLTK (kit de ferramentas de linguagem natural)
+## Requirements
 
-## Como usar com o Docker 🐳
+- Python 3.7 or higher
+- FastAPI
+- Uvicorn
+- NLTK
 
-### 1. Clone este repositório
+## Installation
 
-```cmd
-Git clone https://github.com/ntsation/analyze_feelings.git
-```
+1. Clone the repository:
 
-### 2. Navegue até o diretório do projeto
+   ```bash
+   git clone https://github.com/ntsation/sentiment-analysis-api.git
+   cd sentiment-analysis-api
+   ```
 
-```cmd
-cd analyze_feelings
-```
+2. Create a virtual environment (optional but recommended):
 
-### 3. Construa a imagem do Docker
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-```cmd
-docker build -t analyze_feelings .
-```
+3. Install the required packages:
 
-### 4. Execute o contêiner do Docker interativamente
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```cmd
-docker run -it --rm analyze_feelings
-```
+## Usage
 
-Isso iniciará o aplicativo de análise de sentimentos no modo interativo.
+1. Run the application:
 
-## Escolha uma opção
+   ```bash
+   python main.py
+   ```
 
-Digite mensagens no console para análise de sentimentos em tempo real.
-Analise o sentimento de um arquivo de texto, fornecendo seu caminho.
+   The API will start on `http://127.0.0.1:8000`.
 
-### Exemplos de mensagens 📝
+2. Use an API client like Postman or curl to interact with the endpoints.
 
-Mensagem positiva 😃:
+### API Endpoints
 
-```text
-Eu amo este produto, é incrível!
-```
+- **POST /analyze**
+  - Analyze sentiment of a single text.
+  - **Request Body:**
+    ```json
+    {
+      "text": "Your text here"
+    }
+    ```
+  - **Response:**
+    ```json
+    {
+      "text": "Your text here",
+      "sentiment": {
+        "neg": 0.0,
+        "neu": 0.4,
+        "pos": 0.6,
+        "compound": 0.5
+      }
+    }
+    ```
 
-Mensagem negativa 😞:
+- **POST /analyze_multiple**
+  - Analyze sentiment of multiple texts.
+  - **Request Body:**
+    ```json
+    {
+      "texts": ["Text one", "Text two"]
+    }
+    ```
+  - **Response:**
+    ```json
+    {
+      "results": {
+        "Text one": { ... },
+        "Text two": { ... }
+      }
+    }
+    ```
 
-```text
-Este filme é terrível, eu não recomendo.
-```
+- **GET /sentiment_classes**
+  - Retrieve sentiment classification categories.
+  - **Response:**
+    ```json
+    {
+      "classes": {
+        "positive": "Scores greater than 0.05",
+        "neutral": "Scores between -0.05 and 0.05",
+        "negative": "Scores less than -0.05"
+      }
+    }
+    ```
 
-Mensagem neutra 😐:
-
-```text
-O tempo está agradável hoje.
-```
-
-## Nota
-
-```text
-Mensagens em inglês podem ter uma eficiência melhor na análise de sentimentos devido à disponibilidade de recursos de processamento de linguagem natural mais robustos para o inglês.
-```
-
-## Contribuição 💬
-
-Sinta -se à vontade para contribuir, abrir problemas e melhorar este projeto.Todos os tipos de contribuições são bem-vindos!
+- **POST /analyze_statistics**
+  - Get statistics on the sentiment distribution for multiple texts.
+  - **Request Body:**
+    ```json
+    {
+      "texts": ["Text one", "Text two"]
+    }
+    ```
+  - **Response:**
+    ```json
+    {
+      "statistics": {
+        "positive": 1,
+        "neutral": 1,
+        "negative": 0
+      }
+    }
+    ```
